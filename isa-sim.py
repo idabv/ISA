@@ -308,92 +308,63 @@ registerFile = RegisterFile()
 dataMemory = DataMemory()
 instructionMemory = InstructionMemory()
 
-def decode(instruction):
-    instructionTypes = ['ADD','SUB','OR','AND',
-                        'NOT','LI','LD','SD',
-                        'JR','JEQ','JLT','NOP',
-                        'END']
-    com = instruction[0]
-    if com == 'ADD':
-        instruction[1] = instruction[2] + instruction[3]
-    elif com == 'SUB':
-        instruction[1] = instruction[2] - instruction[3]
-    elif com == 'OR':
-        instruction[1] = instruction[2] or instruction[3]
-    elif com == 'AND':
-        instruction[1] = instruction[2] and instruction[3]
-    elif com == 'NOT':
-        instruction[1] = not(instruction[2])
-    elif com == 'LI':
-        instruction[1]=6
-    elif com == 'LD':
-        instruction[1] =dataMemory.read_data(instruction[2])
-
-    elif com == 'SD':
-        dataMemory.read_data(instruction[2])=instruction[1]
-
-    elif com == 'JR':
-        program_counter=instruction[1]
-
-    elif com == 'JEQ':
-        if instruction[2]==instruction[3]:
-            program_counter = instruction[1]
-
-    elif com == 'JLT':
-        if instruction[2]<instruction[3]:
-            program_counter = instruction[1]
-
-    elif com == 'NOP':
-        pass
-
-    elif com == 'END':
-        break
-
-    elif com ==
-
-    elif com == 'SUB':
-        instruction[1] = instruction[2] - instruction[3]
-    elif com == 'OR':
-        instruction[1] = instruction[2] or instruction[3]
-    elif com == 'AND':
-        instruction[1] = instruction[2] and instruction[3]
-    elif com == 'NOT':
-        instruction[1] = not(instruction[2])
-
-
-
 current_cycle = 0
 program_counter = 0
 
-
 print('\n---Start of simulation---')
 
-while(current_cycle <= max_cycles):
-
+while(current_cycle < max_cycles):
+    print('Ida er lækker {}x'.format(current_cycle))
     #Fetch
-    print(instructionMemory.print_instruction(current_cycle))
     IR = instructionMemory.read_opcode(program_counter)
     OP1 = instructionMemory.read_operand_1(program_counter)
     OP2 = instructionMemory.read_operand_2(program_counter)
     OP3 = instructionMemory.read_operand_3(program_counter)
     insList = [IR,OP1,OP2,OP3]
     print(insList)
+    
+    com = insList[0]
+    if com == 'ADD':
+        add = registerFile.read_register(insList[2]) + registerFile.read_register(insList[3])
+        registerFile.write_register(insList[1], add)
+    elif com == 'SUB':
+        sub = registerFile.read_register(insList[2]) - registerFile.read_register(insList[3])
+        registerFile.write_register(insList[1], sub)
+    elif com == 'OR':
+        check = registerFile.read_register(insList[2]) | registerFile.read_register(insList[3])
+        registerFile.write_register(insList[1], check)
+    elif com == 'AND':
+        check = registerFile.read_register(insList[2]) & registerFile.read_register(insList[3])
+        registerFile.write_register(insList[1], check)
+    elif com == 'NOT':
+        registerFile.write_register(insList[1], ~(registerFile.read_register(insList[2])))
+    elif com == 'LI':
+        registerFile.write_register((insList[1]), eval(insList[2]))
+    elif com == 'LD':
+        registerFile.write_register((insList[1]), dataMemory.read_data(registerFile.read_register(insList[2])))
+    elif com == 'SD':
+        dataMemory.write_data(registerFile.read_register(insList[2]), registerFile.read_register(insList[1]))
+    elif com == 'JR':
+        program_counter = registerFile.read_register(insList[1]) - 1
+    elif com == 'JEQ':
+        if registerFile.read_register(insList[2]) == registerFile.read_register(insList[3]):
+            program_counter = registerFile.read_register(insList[1]) - 1
+    elif com == 'JLT':
+        if registerFile.read_register(insList[2]) < registerFile.read_register(insList[3]):
+            program_counter = registerFile.read_register(insList[1]) - 1
+    elif com == 'NOP':
+        pass
+    elif com == 'END':
+        break
 
-    #Decode
-
-    #Fetch Operands
-
-    #Execute
-
-    #Store results
-    print('INSTRUCTION MEMORY CLASS:')
-    print('READ OPCODE COMMAND: {}'.format(instructionMemory.read_opcode(current_cycle)))
-    print('READ OPERAND 1: {}'.format(instructionMemory.read_operand_1(current_cycle)))
-    print('READ OPERAND 2: {}'.format(instructionMemory.read_operand_2(current_cycle)))
-    print('READ OPERAND 3: {}'.format(instructionMemory.read_operand_3(current_cycle)))
-    print('\nDATA MEMORY CLASS')
-    print('READ DATA: {}'.format(dataMemory.read_data(current_cycle)))
+    program_counter += 1
     current_cycle += 1
     print('-------------------------')
+
+print('\n---Simulation Summary---\n')
+instructionMemory.print_program()
+registerFile.print_all()
+dataMemory.print_used()
+print('Number of cycles: {}'.format(current_cycle))
 
 print('\n---End of simulation---\n')
