@@ -298,6 +298,16 @@ class InstructionMemory:
                 print('Address ' + str(address) + ' = ', end='')
                 self.print_instruction(address)
 
+
+
+
+current_cycle = 0
+program_counter = 0
+
+registerFile = RegisterFile()
+dataMemory = DataMemory()
+instructionMemory = InstructionMemory()
+
 def decode(instruction):
     instructionTypes = ['ADD','SUB','OR','AND',
                         'NOT','LI','LD','SD',
@@ -306,27 +316,32 @@ def decode(instruction):
     com = instruction[0]
     if com = 'ADD':
         instruction[1] = instruction[2] + instruction[3]
-    elif com =
-
+    elif com = 'SUB':
+        instruction[1] = instruction[2] - instruction[3]
+    elif com = 'OR':
+        instruction[1] = instruction[2] or instruction[3]
+    elif com = 'AND':
+        instruction[1] = instruction[2] and instruction[3]
+    elif com = 'NOT':
+        instruction[1] = not (instruction[2])
     elif com = 'LI':
         instruction[1]=6
-
     elif com = 'LD':
-        instruction[2] = dataMemory.write_data()
+        instruction[1] =dataMemory.read_data(instruction[2])
 
     elif com = 'SD':
-        go to R1
+        dataMemory.read_data(instruction[2])=instruction[1]
+
     elif com = 'JR':
-        go to R1
+        program_counter=instruction[1]
 
     elif com = 'JEQ':
         if instruction[2]==instruction[3]:
-            go to R1
+            program_counter = instruction[1]
 
     elif com = 'JLT':
         if instruction[2]<instruction[3]:
-            go to R1
-
+            program_counter = instruction[1]
 
     elif com = 'NOP':
         pass
@@ -339,12 +354,7 @@ def decode(instruction):
 
 
 
-current_cycle = 0
-program_counter = 0
 
-registerFile = RegisterFile()
-dataMemory = DataMemory()
-instructionMemory = InstructionMemory()
 
 print('\n---Start of simulation---')
 
