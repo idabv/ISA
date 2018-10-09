@@ -316,9 +316,6 @@ def decode(instruction):
     com = instruction[0]
     if com = 'ADD':
         instruction[1] = instruction[2] + instruction[3]
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
     elif com = 'SUB':
         instruction[1] = instruction[2] - instruction[3]
     elif com = 'OR':
@@ -352,18 +349,8 @@ def decode(instruction):
     elif com = 'END':
         break
 
-<<<<<<< HEAD
-=======
-
-
-
-
-
-=======
->>>>>>> 146d8aed4cf6d289ae4043c66b4c4c0efdfb588d
->>>>>>> f9d0f122a0dd3719fe42d35de182f3320b8da26f
     elif com =
-=======
+
     elif com = 'SUB':
         instruction[1] = instruction[2] - instruction[3]
     elif com = 'OR':
