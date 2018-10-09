@@ -316,6 +316,7 @@ def decode(instruction):
     com = instruction[0]
     if com = 'ADD':
         instruction[1] = instruction[2] + instruction[3]
+<<<<<<< HEAD
     elif com = 'SUB':
         instruction[1] = instruction[2] - instruction[3]
     elif com = 'OR':
@@ -354,13 +355,15 @@ def decode(instruction):
 
 
 
+=======
+    elif com =
+current_cycle = 0
+program_counter = 0
+>>>>>>> 86ac8616d82b5781cf1e520a11f42689afc7e877
 
 
 print('\n---Start of simulation---')
 
-
-
-=======
 while(current_cycle <= max_cycles):
 
     #Fetch
@@ -388,6 +391,5 @@ while(current_cycle <= max_cycles):
     print('READ DATA: {}'.format(dataMemory.read_data(current_cycle)))
     current_cycle += 1
     print('-------------------------')
-
 
 print('\n---End of simulation---\n')
