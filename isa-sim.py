@@ -309,8 +309,6 @@ instructionMemory = InstructionMemory()
 
 print('\n---Start of simulation---')
 
-#####################################
-##      Write your code here      ##
-####################################
+
 
 print('\n---End of simulation---\n')
