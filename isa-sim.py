@@ -298,6 +298,16 @@ class InstructionMemory:
                 print('Address ' + str(address) + ' = ', end='')
                 self.print_instruction(address)
 
+
+
+
+current_cycle = 0
+program_counter = 0
+
+registerFile = RegisterFile()
+dataMemory = DataMemory()
+instructionMemory = InstructionMemory()
+
 def decode(instruction):
     instructionTypes = ['ADD','SUB','OR','AND',
                         'NOT','LI','LD','SD',
@@ -307,6 +317,48 @@ def decode(instruction):
     if com = 'ADD':
         instruction[1] = instruction[2] + instruction[3]
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+    elif com = 'SUB':
+        instruction[1] = instruction[2] - instruction[3]
+    elif com = 'OR':
+        instruction[1] = instruction[2] or instruction[3]
+    elif com = 'AND':
+        instruction[1] = instruction[2] and instruction[3]
+    elif com = 'NOT':
+        instruction[1] = not (instruction[2])
+    elif com = 'LI':
+        instruction[1]=6
+    elif com = 'LD':
+        instruction[1] =dataMemory.read_data(instruction[2])
+
+    elif com = 'SD':
+        dataMemory.read_data(instruction[2])=instruction[1]
+
+    elif com = 'JR':
+        program_counter=instruction[1]
+
+    elif com = 'JEQ':
+        if instruction[2]==instruction[3]:
+            program_counter = instruction[1]
+
+    elif com = 'JLT':
+        if instruction[2]<instruction[3]:
+            program_counter = instruction[1]
+
+    elif com = 'NOP':
+        pass
+
+    elif com = 'END':
+        break
+
+
+
+
+
+
+=======
+>>>>>>> 146d8aed4cf6d289ae4043c66b4c4c0efdfb588d
     elif com =
 =======
     elif com = 'SUB':
@@ -322,10 +374,8 @@ def decode(instruction):
 >>>>>>> parent of aa8b165... Merge branch 'master' of https://github.com/idabv/ISA
 current_cycle = 0
 program_counter = 0
+>>>>>>> 86ac8616d82b5781cf1e520a11f42689afc7e877
 
-registerFile = RegisterFile()
-dataMemory = DataMemory()
-instructionMemory = InstructionMemory()
 
 print('\n---Start of simulation---')
 
