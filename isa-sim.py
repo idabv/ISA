@@ -361,10 +361,9 @@ def decode(instruction):
         instruction[1] = not(instruction[2])
 
 
->>>>>>> parent of aa8b165... Merge branch 'master' of https://github.com/idabv/ISA
+
 current_cycle = 0
 program_counter = 0
->>>>>>> 86ac8616d82b5781cf1e520a11f42689afc7e877
 
 
 print('\n---Start of simulation---')
