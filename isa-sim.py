@@ -314,50 +314,50 @@ def decode(instruction):
                         'JR','JEQ','JLT','NOP',
                         'END']
     com = instruction[0]
-    if com = 'ADD':
+    if com == 'ADD':
         instruction[1] = instruction[2] + instruction[3]
-    elif com = 'SUB':
+    elif com == 'SUB':
         instruction[1] = instruction[2] - instruction[3]
-    elif com = 'OR':
+    elif com == 'OR':
         instruction[1] = instruction[2] or instruction[3]
-    elif com = 'AND':
+    elif com == 'AND':
         instruction[1] = instruction[2] and instruction[3]
-    elif com = 'NOT':
-        instruction[1] = not (instruction[2])
-    elif com = 'LI':
+    elif com == 'NOT':
+        instruction[1] = not(instruction[2])
+    elif com == 'LI':
         instruction[1]=6
-    elif com = 'LD':
+    elif com == 'LD':
         instruction[1] =dataMemory.read_data(instruction[2])
 
-    elif com = 'SD':
+    elif com == 'SD':
         dataMemory.read_data(instruction[2])=instruction[1]
 
-    elif com = 'JR':
+    elif com == 'JR':
         program_counter=instruction[1]
 
-    elif com = 'JEQ':
+    elif com == 'JEQ':
         if instruction[2]==instruction[3]:
             program_counter = instruction[1]
 
-    elif com = 'JLT':
+    elif com == 'JLT':
         if instruction[2]<instruction[3]:
             program_counter = instruction[1]
 
-    elif com = 'NOP':
+    elif com == 'NOP':
         pass
 
-    elif com = 'END':
+    elif com == 'END':
         break
 
-    elif com =
+    elif com ==
 
-    elif com = 'SUB':
+    elif com == 'SUB':
         instruction[1] = instruction[2] - instruction[3]
-    elif com = 'OR':
+    elif com == 'OR':
         instruction[1] = instruction[2] or instruction[3]
-    elif com = 'AND':
+    elif com == 'AND':
         instruction[1] = instruction[2] and instruction[3]
-    elif com = 'NOT':
+    elif com == 'NOT':
         instruction[1] = not(instruction[2])
 
 
