@@ -307,6 +307,38 @@ def decode(instruction):
     if com = 'ADD':
         instruction[1] = instruction[2] + instruction[3]
     elif com =
+
+    elif com = 'LI':
+        instruction[1]=6
+
+    elif com = 'LD':
+        instruction[2] = dataMemory.write_data()
+
+    elif com = 'SD':
+        go to R1
+    elif com = 'JR':
+        go to R1
+
+    elif com = 'JEQ':
+        if instruction[2]==instruction[3]:
+            go to R1
+
+    elif com = 'JLT':
+        if instruction[2]<instruction[3]:
+            go to R1
+
+
+    elif com = 'NOP':
+        pass
+
+    elif com = 'END':
+        break
+
+
+
+
+
+
 current_cycle = 0
 program_counter = 0
 
@@ -316,7 +348,7 @@ instructionMemory = InstructionMemory()
 
 print('\n---Start of simulation---')
 
-<<<<<<< HEAD
+
 
 =======
 while(current_cycle <= max_cycles):
@@ -346,6 +378,6 @@ while(current_cycle <= max_cycles):
     print('READ DATA: {}'.format(dataMemory.read_data(current_cycle)))
     current_cycle += 1
     print('-------------------------')
->>>>>>> 0611a4ef90710e4e7cde1eaa8805258e0f973242
+
 
 print('\n---End of simulation---\n')
