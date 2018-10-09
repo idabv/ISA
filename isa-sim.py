@@ -350,12 +350,6 @@ def decode(instruction):
     elif com = 'END':
         break
 
-
-
-
-
-
-=======
     elif com =
 current_cycle = 0
 program_counter = 0
