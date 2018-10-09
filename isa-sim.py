@@ -306,7 +306,20 @@ def decode(instruction):
     com = instruction[0]
     if com = 'ADD':
         instruction[1] = instruction[2] + instruction[3]
+<<<<<<< HEAD
     elif com =
+=======
+    elif com = 'SUB':
+        instruction[1] = instruction[2] - instruction[3]
+    elif com = 'OR':
+        instruction[1] = instruction[2] or instruction[3]
+    elif com = 'AND':
+        instruction[1] = instruction[2] and instruction[3]
+    elif com = 'NOT':
+        instruction[1] = not(instruction[2])
+
+
+>>>>>>> parent of aa8b165... Merge branch 'master' of https://github.com/idabv/ISA
 current_cycle = 0
 program_counter = 0
 
