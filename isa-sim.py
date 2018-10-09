@@ -1,7 +1,7 @@
 import sys
 import re
 
-print("\nWelcome to the ISA simulator! - Designed by <YOUR NAMES HERE>")
+print("\nWelcome to the ISA simulator! - Designed by Ida Bukh Villesen, Simon Larsen and Aimas Lund")
 
 if len(sys.argv) < 4:
     print('Too few arguments.')
@@ -298,10 +298,17 @@ class InstructionMemory:
                 print('Address ' + str(address) + ' = ', end='')
                 self.print_instruction(address)
 
-
-
-current_cycle=0
-program_counter=0
+def decode(instruction):
+    instructionTypes = ['ADD','SUB','OR','AND',
+                        'NOT','LI','LD','SD',
+                        'JR','JEQ','JLT','NOP',
+                        'END']
+    com = instruction[0]
+    if com = 'ADD':
+        instruction[1] = instruction[2] + instruction[3]
+    elif com =
+current_cycle = 0
+program_counter = 0
 
 registerFile = RegisterFile()
 dataMemory = DataMemory()
@@ -309,6 +316,36 @@ instructionMemory = InstructionMemory()
 
 print('\n---Start of simulation---')
 
+<<<<<<< HEAD
 
+=======
+while(current_cycle <= max_cycles):
+
+    #Fetch
+    print(instructionMemory.print_instruction(current_cycle))
+    IR = instructionMemory.read_opcode(program_counter)
+    OP1 = instructionMemory.read_operand_1(program_counter)
+    OP2 = instructionMemory.read_operand_2(program_counter)
+    OP3 = instructionMemory.read_operand_3(program_counter)
+    insList = [IR,OP1,OP2,OP3]
+    print(insList)
+
+    #Decode
+
+    #Fetch Operands
+
+    #Execute
+
+    #Store results
+    print('INSTRUCTION MEMORY CLASS:')
+    print('READ OPCODE COMMAND: {}'.format(instructionMemory.read_opcode(current_cycle)))
+    print('READ OPERAND 1: {}'.format(instructionMemory.read_operand_1(current_cycle)))
+    print('READ OPERAND 2: {}'.format(instructionMemory.read_operand_2(current_cycle)))
+    print('READ OPERAND 3: {}'.format(instructionMemory.read_operand_3(current_cycle)))
+    print('\nDATA MEMORY CLASS')
+    print('READ DATA: {}'.format(dataMemory.read_data(current_cycle)))
+    current_cycle += 1
+    print('-------------------------')
+>>>>>>> 0611a4ef90710e4e7cde1eaa8805258e0f973242
 
 print('\n---End of simulation---\n')
