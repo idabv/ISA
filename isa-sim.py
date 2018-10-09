@@ -306,16 +306,7 @@ def decode(instruction):
     com = instruction[0]
     if com = 'ADD':
         instruction[1] = instruction[2] + instruction[3]
-    elif com = 'SUB':
-        instruction[1] = instruction[2] - instruction[3]
-    elif com = 'OR':
-        instruction[1] = instruction[2] or instruction[3]
-    elif com = 'AND':
-        instruction[1] = instruction[2] and instruction[3]
-    elif com = 'NOT':
-        instruction[1] = not(instruction[2])
-
-
+    elif com =
 current_cycle = 0
 program_counter = 0
 
