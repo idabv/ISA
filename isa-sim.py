@@ -312,6 +312,7 @@ while(current_cycle < max_cycles):
     print('Instruction to be executed:')
     instructionMemory.print_instruction(program_counter)
     print('\nPC: {}'.format(program_counter))
+    registerFile.print_all()
 
     IR = instructionMemory.read_opcode(program_counter)
     OP1 = instructionMemory.read_operand_1(program_counter)
