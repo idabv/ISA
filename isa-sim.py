@@ -356,13 +356,13 @@ while(current_cycle < max_cycles):
     print('-------------------------')
 
 print('\n---Simulation Summary---\n')
-"""
+
 instructionMemory.print_program()
 print("")
 registerFile.print_all()
 print("")
 dataMemory.print_used()
-"""
+
 print('\nNumber of cycles: {}'.format(current_cycle))
 
 print('\n---End of simulation---\n')

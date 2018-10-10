@@ -1,3 +1,0 @@
-
-
-print(eval(decodeDict['ADD']))
