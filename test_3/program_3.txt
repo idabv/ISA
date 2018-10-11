@@ -1,19 +1,25 @@
+# Reserve R1 for Read Pointer & Incrementer
+# Reserve R2 for Write Pointer
+# Reserve R3 for "to End" pointer
+# Reserve R4 for Read k-value Pointer
+# Reserve R5 for For Loop Counter
+# Reserve R7 for Mod Counter
+# Reserve R8 for Max Cycles in for loop
+# Reserve R9 for Memory Extraction
+# Reserve R10-R15 for Jump pointers
+
 # Setup the registers and pointers
 0: LI R1, 1;     # R1 will be read pointer + Incrementer
 1: LI R2, 10;    # R2 will be the write pointer
 2: LI R3, 25;    # Jump To End Pointer
 3: LD R4, R0;    # Read k value
 4: LI R6, 1;     # Set Data Mem Counter = 1
-    # Reserve R5 for For Loop Counter
-    # Reserve R7 for Mod Counter
-    # Reserve R8 for Max Cycles in for loop
-    # Reserve R9 for Memory Extraction
 5: LD R8, R2;    # Load max cycles from mem(10)
 6: LI R10, 20;   # Set Pointer to LD
 7: LI R11, 12;   # Set Pointer to JEQ
 8: LI R12, 14;   # Set Pointer to ADD
 9: LI R13, 16;   # Set Pointer to ADD
-10: LI R14, 18;   # Set Pointer to ADD
+10: LI R14, 18;  # Set Pointer to ADD
 11: LI R15, 21;  # Set Pointer to JLT
 
 # Logic Processing
