@@ -27,12 +27,12 @@
 13: JR R10; # Jump to LD
 14: ADD R5, R5, R1; # Increment For Loop Counter
 15: JR R11; # Jump to JEQ
-16: ADD R6, R6, R1; # Increment For Load Counter
+16: ADD R6, R6, R1; # Increment For Data Mem Load Counter
 17: JR R12; # Jump to "Increment For Loop Counter"
 18: ADD R7, R7, R1; # Increment Mod Counter
 19: JR R13; # Jump to "Increment For Load Counter"
 
-# Nonsense
+# Modulo Check
 20: LD R9, R6; # Load List Element from Data Mem
 21: JLT R13, R9, R4; # Check if k > element (if so, jump tp LD)
 22: JEQ R14, R9, R4; # Check if k = element (if so, jump to "Increment for Mod Counter")
