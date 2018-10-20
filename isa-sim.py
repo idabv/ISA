@@ -312,13 +312,13 @@ while(current_cycle < max_cycles):
     print('Instruction to be executed:')
     instructionMemory.print_instruction(program_counter)
     print('\nPC: {}'.format(program_counter))
-    registerFile.print_all()
 
     IR = instructionMemory.read_opcode(program_counter)
     OP1 = instructionMemory.read_operand_1(program_counter)
     OP2 = instructionMemory.read_operand_2(program_counter)
     OP3 = instructionMemory.read_operand_3(program_counter)
 
+    #Execute instructions corresponding to output of IR
     if IR == 'ADD':
         add = registerFile.read_register(OP2) + registerFile.read_register(OP3)
         registerFile.write_register(OP1, add)
