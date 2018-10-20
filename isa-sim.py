@@ -311,7 +311,7 @@ while(current_cycle < max_cycles):
     print('Cycle Number: {}\n'.format(current_cycle))
     print('Instruction to be executed:')
     instructionMemory.print_instruction(program_counter)
-    print('\nPC: {}'.format(program_counter))
+    print('\nProgram counter value: {}'.format(program_counter))
 
     IR = instructionMemory.read_opcode(program_counter)
     OP1 = instructionMemory.read_operand_1(program_counter)
@@ -364,6 +364,6 @@ registerFile.print_all()
 print("")
 dataMemory.print_used()
 
-print('\nNumber of cycles: {}'.format(current_cycle))
+print('\nNumber of cycles used: {}'.format(current_cycle))
 
 print('\n---End of simulation---\n')
