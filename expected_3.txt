@@ -1,0 +1,1 @@
+Register file content:R0 = 0R1 = 5R2 = 15R3 = 32R4 = 47R5 = 2R6 = 96R7 = 209R8 = 9R10 = 3R11 = 12R12 = 14R13 = 16R14 = 18R15 = 21
